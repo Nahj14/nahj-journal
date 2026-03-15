@@ -1,17 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
   return articles.map(entry => ({
-    params: { slug: entry.slug },
+    params: { slug: entry.id },
     props: { entry },
   }));
 }
 
 const { entry } = Astro.props;
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 const {
   title,
@@ -114,7 +114,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
               You are free to share and adapt with attribution.
             </div>
             <div class="af-cite">
-              <strong>How to cite:</strong> {author} ({new Date(pubDate).getFullYear()}). {title}. <em>NAHJ Journal</em>, 1(1). journal.nahjinstitute.com/articles/{entry.slug}/
+              <strong>How to cite:</strong> {author} ({new Date(pubDate).getFullYear()}). {title}. <em>NAHJ Journal</em>, 1(1). journal.nahjinstitute.com/articles/{entry.id}/
             </div>
           </div>
         </main>
