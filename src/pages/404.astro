@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Page Not Found">
+  <div style="min-height:60vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;">
+    <div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:80px;font-weight:300;color:var(--border);line-height:1;margin-bottom:1rem;">404</div>
+      <h1 style="font-family:'Cormorant Garamond',serif;font-size:28px;color:var(--navy);margin-bottom:0.75rem;">Page Not Found</h1>
+      <p style="font-size:17px;color:var(--muted);font-weight:300;margin-bottom:2rem;">The page you are looking for does not exist or has been moved.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="/" class="btn-primary">Journal Home</a>
+        <a href="/archive" class="btn-outline">Browse Archive</a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

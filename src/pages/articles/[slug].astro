@@ -1,0 +1,394 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const articles = await getCollection('articles');
+  return articles.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const {
+  title,
+  description,
+  pubDate,
+  author = 'NAHJ Editorial Team',
+  category = 'Research',
+  type = 'Essay',
+  readingTime,
+  excerpt,
+} = entry.data;
+
+const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric'
+});
+---
+
+<BaseLayout title={title} description={excerpt || description}>
+
+  <!-- Article Hero -->
+  <div class="article-hero">
+    <div class="container-narrow">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> /
+        <a href="/archive">Archive</a> /
+        <span>{category}</span>
+      </nav>
+
+      <div class="article-type-tag">{type}</div>
+      <div class="article-category">{category}</div>
+
+      <h1 class="article-title">{title}</h1>
+
+      {excerpt && <p class="article-excerpt-hero">{excerpt}</p>}
+
+      <div class="article-byline">
+        <div class="byline-author">{author}</div>
+        <div class="byline-meta">
+          <span>{formattedDate}</span>
+          {readingTime && <><span class="sep">·</span><span>{readingTime} min read</span></>}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Article Body -->
+  <div class="article-layout">
+    <div class="container">
+      <div class="article-grid">
+
+        <!-- Left: Share & Cite -->
+        <aside class="article-aside-left">
+          <div class="aside-sticky">
+            <div class="aside-section">
+              <div class="aside-label">Share</div>
+              <div class="share-buttons">
+                <a href={`https://twitter.com/intent/tweet?url=${Astro.url}&text=${encodeURIComponent(title)}`} target="_blank" class="share-btn" title="Share on X">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.635 5.904-5.635Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+                <a href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`} target="_blank" class="share-btn" title="Share on Facebook">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+                <button class="share-btn" id="copy-link" title="Copy link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="aside-section">
+              <div class="aside-label">Cite</div>
+              <div class="cite-box">
+                <div class="cite-text">{author} ({new Date(pubDate).getFullYear()}). {title}. <em>NAHJ Journal</em>, 1(1).</div>
+                <button class="cite-copy" id="copy-cite">Copy</button>
+              </div>
+            </div>
+
+            <div class="aside-section">
+              <div class="aside-label">Details</div>
+              <div class="detail-list">
+                <div class="detail-row"><span>Published</span><span>{formattedDate}</span></div>
+                <div class="detail-row"><span>Type</span><span>{type}</span></div>
+                <div class="detail-row"><span>Topic</span><span>{category}</span></div>
+                <div class="detail-row"><span>Access</span><span>Open</span></div>
+                <div class="detail-row"><span>Licence</span><span>CC BY 4.0</span></div>
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main article content -->
+        <main class="article-main">
+          <div class="prose">
+            <Content />
+          </div>
+
+          <div class="article-footer">
+            <div class="af-licence">
+              <strong>Licence:</strong> This article is published under
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+              You are free to share and adapt with attribution.
+            </div>
+            <div class="af-cite">
+              <strong>How to cite:</strong> {author} ({new Date(pubDate).getFullYear()}). {title}. <em>NAHJ Journal</em>, 1(1). journal.nahjinstitute.com/articles/{entry.slug}/
+            </div>
+          </div>
+        </main>
+
+        <!-- Right: Related -->
+        <aside class="article-aside-right">
+          <div class="aside-sticky">
+            <div class="aside-section">
+              <div class="aside-label">Also in This Issue</div>
+              <a href="/archive" class="related-link">Browse all articles →</a>
+            </div>
+            <div class="aside-section">
+              <div class="aside-label">Submit Your Work</div>
+              <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.6;margin-bottom:0.75rem;">NAHJ Journal is open for submissions. Double-blind review, free to publish.</p>
+              <a href="/submit/manuscript" class="btn-primary" style="display:block;text-align:center;font-size:12px;">Submit Manuscript</a>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<script>
+document.getElementById('copy-link')?.addEventListener('click', () => {
+  navigator.clipboard.writeText(window.location.href);
+  const btn = document.getElementById('copy-link');
+  if (btn) { btn.style.color = 'var(--gold)'; setTimeout(() => btn.style.color = '', 2000); }
+});
+
+document.getElementById('copy-cite')?.addEventListener('click', () => {
+  const citeText = document.querySelector('.cite-text')?.textContent || '';
+  navigator.clipboard.writeText(citeText);
+  const btn = document.getElementById('copy-cite');
+  if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
+});
+</script>
+
+<style is:global>
+.article-hero {
+  background: var(--navy);
+  padding: 3rem 0 3rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+.article-type-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.article-category {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3.5vw, 40px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.25;
+  margin: 0 0 1.25rem;
+}
+
+.article-excerpt-hero {
+  font-size: 19px;
+  color: rgba(255,255,255,0.65);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+.article-byline {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.byline-author {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.byline-meta {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+.byline-meta .sep { margin: 0 0.4rem; }
+
+/* Article layout */
+.article-layout { padding: 3rem 0 5rem; }
+
+.article-grid {
+  display: grid;
+  grid-template-columns: 180px 1fr 200px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.aside-sticky { position: sticky; top: 2rem; }
+
+.aside-section { margin-bottom: 1.75rem; }
+
+.aside-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.share-buttons { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+.share-btn {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  color: var(--navy);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.share-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+.cite-box {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+}
+
+.cite-text {
+  font-size: 12px;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 0.5rem;
+}
+
+.cite-copy {
+  background: var(--navy);
+  color: var(--white);
+  border: none;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.cite-copy:hover { background: var(--teal); }
+
+.detail-list { display: flex; flex-direction: column; gap: 0; }
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.detail-row:last-child { border-bottom: none; }
+
+.detail-row span:first-child { color: var(--muted); }
+.detail-row span:last-child { color: var(--navy); font-weight: 500; }
+
+/* Prose */
+.prose {
+  font-size: 18px;
+  line-height: 1.82;
+  color: var(--charcoal);
+}
+
+.prose h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 2.5rem 0 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.prose h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 2rem 0 0.75rem;
+}
+
+.prose p { margin-bottom: 1.3em; font-weight: 300; }
+
+.prose blockquote {
+  border-left: 3px solid var(--gold);
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  margin: 1.5rem 0;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.prose a { color: var(--teal); text-decoration: underline; }
+.prose a:hover { color: var(--gold); }
+
+.prose ol, .prose ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1.3em;
+}
+
+.prose li { margin-bottom: 0.4em; font-weight: 300; }
+
+.prose hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+
+/* Article footer */
+.article-footer {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.af-licence, .af-cite {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.65;
+  font-weight: 300;
+}
+
+.af-licence a, .af-cite a { color: var(--teal); }
+
+.related-link {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+}
+.related-link:hover { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .article-grid { grid-template-columns: 1fr; }
+  .article-aside-left { order: 2; }
+  .article-main { order: 1; }
+  .article-aside-right { order: 3; }
+  .aside-sticky { position: static; }
+  .share-buttons { flex-direction: row; }
+}
+</style>

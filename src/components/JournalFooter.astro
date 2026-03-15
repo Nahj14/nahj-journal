@@ -1,0 +1,161 @@
+---
+---
+<footer class="journal-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-name">NAHJ JOURNAL</div>
+        <div class="footer-brand-sub">A peer-reviewed open access journal published by Nahj Institute</div>
+        <div class="footer-meta">
+          <span>Vol. 1 · Spring 2026</span>
+          <span class="dot">·</span>
+          <span>ISSN Pending</span>
+          <span class="dot">·</span>
+          <span>Open Access · CC BY 4.0</span>
+        </div>
+      </div>
+
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">Journal</div>
+          <a href="/">Home</a>
+          <a href="/archive">Archive</a>
+          <a href="/team">Editorial Team</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Submit</div>
+          <a href="/submit">Author Guidelines</a>
+          <a href="/submit/manuscript">Submit Manuscript</a>
+          <a href="/review">For Reviewers</a>
+          <a href="/review/special-issue">Propose Special Issue</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">About</div>
+          <a href="https://nahjinstitute.com/about">Nahj Institute</a>
+          <a href="/privacy">Privacy Policy</a>
+          <a href="/terms">Terms of Use</a>
+          <a href="mailto:journal@nahjinstitute.com">journal@nahjinstitute.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-notice">
+        The views expressed in all articles are those of the individual authors and do not
+        represent the positions of Nahj Institute. All submissions are peer-reviewed before publication.
+      </div>
+      <div class="footer-copy">
+        © 2026 Nahj Institute. Published under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+        <span class="sep">·</span>
+        <a href="https://nahjinstitute.com">Nahj Institute</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style is:global>
+.journal-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.6);
+  margin-top: 5rem;
+}
+
+.footer-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.footer-top {
+  padding: 3.5rem 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.footer-brand-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  max-width: 320px;
+}
+
+.footer-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-size: 12px;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.05em;
+}
+
+.footer-meta .dot { color: var(--gold); }
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footer-col-title {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+}
+
+.footer-col a {
+  display: block;
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  margin-bottom: 0.5rem;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--white); }
+
+.footer-bottom {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-notice {
+  font-size: 13px;
+  color: rgba(255,255,255,0.3);
+  line-height: 1.65;
+  max-width: 720px;
+}
+
+.footer-copy {
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+}
+
+.footer-copy a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+}
+.footer-copy a:hover { color: var(--white); }
+.footer-copy .sep { margin: 0 0.4rem; }
+
+@media (max-width: 768px) {
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-cols { grid-template-columns: 1fr 1fr; }
+}
+</style>

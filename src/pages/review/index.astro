@@ -1,0 +1,159 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="For Reviewers" description="Join the NAHJ Journal review panel, apply for editorial board, or propose a special issue.">
+
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / For Reviewers</nav>
+      <span class="section-label">Scholarly Engagement</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">For Reviewers &amp; Scholars</h1>
+      <p class="page-sub">Join our review panel, apply for the editorial board, or propose a special issue or guest editorship.</p>
+    </div>
+  </div>
+
+  <div class="review-body">
+    <div class="container">
+
+      <div class="review-pathways">
+
+        <a href="/review/reviewer" class="pathway-card">
+          <div class="pathway-num">01</div>
+          <div class="pathway-content">
+            <div class="pathway-title">Join as Reviewer</div>
+            <p class="pathway-desc">Join our panel of peer reviewers. We welcome scholars with expertise across our focus areas to conduct double-blind reviews.</p>
+            <span class="pathway-link">Apply to review →</span>
+          </div>
+        </a>
+
+        <a href="/review/board" class="pathway-card">
+          <div class="pathway-num">02</div>
+          <div class="pathway-content">
+            <div class="pathway-title">Editorial Board</div>
+            <p class="pathway-desc">Apply for a position on the editorial board. Board members provide strategic oversight and contribute to the journal's intellectual direction.</p>
+            <span class="pathway-link">Apply for board →</span>
+          </div>
+        </a>
+
+        <a href="/review/special-issue" class="pathway-card">
+          <div class="pathway-num">03</div>
+          <div class="pathway-content">
+            <div class="pathway-title">Propose a Special Issue</div>
+            <p class="pathway-desc">Have a theme or research question that warrants a dedicated issue? We welcome proposals from individual scholars or collaborative teams.</p>
+            <span class="pathway-link">Submit proposal →</span>
+          </div>
+        </a>
+
+        <a href="/review/guest-editor" class="pathway-card">
+          <div class="pathway-num">04</div>
+          <div class="pathway-content">
+            <div class="pathway-title">Guest Editorship</div>
+            <p class="pathway-desc">Apply to serve as guest editor for a special issue or thematic section, working with the editorial team to commission and review contributions.</p>
+            <span class="pathway-link">Apply as guest editor →</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="review-note">
+        <div class="review-note-inner">
+          <span class="section-label">Our Commitment</span>
+          <div class="gold-rule"></div>
+          <h2 class="review-note-h2">Supporting Scholarly Work</h2>
+          <p>NAHJ Journal recognises that peer review is foundational to academic rigour and that reviewers give their time voluntarily. We acknowledge reviewers annually, provide structured feedback templates, and aim to keep review timeframes reasonable. We are building a scholarly community, not merely a production pipeline.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style is:global>
+.review-body { padding: 3.5rem 0 5rem; background: var(--white); }
+
+.review-pathways {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
+}
+
+.pathway-card {
+  display: flex;
+  gap: 1.5rem;
+  padding: 2rem;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.pathway-card:hover {
+  border-color: var(--navy);
+  background: var(--white);
+}
+
+.pathway-num {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  min-width: 32px;
+  padding-top: 2px;
+}
+
+.pathway-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.pathway-desc {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.7;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.pathway-link {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.pathway-card:hover .pathway-link { color: var(--gold); }
+
+.review-note {
+  background: var(--navy);
+  padding: 3rem;
+}
+
+.review-note-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 1rem;
+}
+
+.review-note p {
+  font-size: 17px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.78;
+  font-weight: 300;
+  max-width: 680px;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .review-pathways { grid-template-columns: 1fr; }
+}
+</style>

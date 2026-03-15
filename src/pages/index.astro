@@ -1,0 +1,624 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" description="NAHJ Journal publishes peer-reviewed research on Islamic thought, politics, society, and philosophy.">
+
+  <!-- HERO -->
+  <section class="journal-hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="section-label">Current Issue</span>
+        <div class="gold-rule"></div>
+        <h1 class="hero-heading">Volume 1 · Spring 2026</h1>
+        <p class="hero-desc">
+          A peer-reviewed, open access journal publishing original scholarship at the intersection
+          of Islamic thought, contemporary politics, society, and philosophy.
+        </p>
+        <div class="hero-tags">
+          <span class="tag">Double-Blind Peer Review</span>
+          <span class="tag">Open Access</span>
+          <span class="tag">CC BY 4.0</span>
+          <span class="tag">Twice Yearly</span>
+        </div>
+      </div>
+      <div class="hero-issue-card">
+        <div class="issue-card-label">Vol. 1 Issue 1</div>
+        <div class="issue-card-title">Spring 2026</div>
+        <div class="issue-card-theme">
+          <span class="theme-label">Focus Theme</span>
+          <span class="theme-value">Authority, Legitimacy & Islamic Governance</span>
+        </div>
+        <div class="issue-card-meta">
+          <div class="meta-row"><span>Articles</span><span>3</span></div>
+          <div class="meta-row"><span>Published</span><span>March 2026</span></div>
+          <div class="meta-row"><span>Access</span><span>Free</span></div>
+        </div>
+        <a href="/archive" class="btn-gold" style="display:block;text-align:center;margin-top:1.5rem;">Browse Issue</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- LATEST ARTICLES -->
+  <section class="section-articles">
+    <div class="container">
+      <div class="section-header">
+        <div>
+          <span class="section-label">Latest Research</span>
+          <div class="gold-rule"></div>
+          <h2 class="section-h2">Recent Publications</h2>
+        </div>
+        <a href="/archive" class="all-link">View all articles →</a>
+      </div>
+
+      <div class="articles-grid">
+
+        <!-- Featured article -->
+        <article class="article-featured">
+          <div class="article-featured-inner">
+            <span class="article-type">Essay</span>
+            <div class="article-category">Theology &amp; Politics</div>
+            <h2 class="article-title">
+              <a href="/articles/ontological-sovereignty-the-imam-as-hujjat-allah-and-the-divine-organ-in-early-shii-doctrine">
+                Ontological Sovereignty: The Imam as Hujjat Allah and the Divine Organ in Early Shi'i Doctrine
+              </a>
+            </h2>
+            <p class="article-excerpt">
+              In the rigorous doctrinal architecture of early Shi'ism, the Imam is far more than a political
+              successor or a communal adjudicator; he is a metahistorical necessity whose authority reaches
+              into the very foundations of creation.
+            </p>
+            <div class="article-meta">
+              <span class="article-author">NAHJ Editorial Team</span>
+              <span class="sep">·</span>
+              <span class="article-date">15 March 2025</span>
+            </div>
+            <a href="/articles/ontological-sovereignty-the-imam-as-hujjat-allah-and-the-divine-organ-in-early-shii-doctrine" class="read-link">Read Article →</a>
+          </div>
+        </article>
+
+        <!-- Secondary article -->
+        <article class="article-card">
+          <span class="article-type-sm">Essay</span>
+          <div class="article-cat-sm">Theology &amp; Politics</div>
+          <h3 class="article-title-sm">
+            <a href="/articles/beyond-the-headlines-islamic-governance-and-mysticism">
+              Beyond the Headlines: Islamic Governance and Mysticism
+            </a>
+          </h3>
+          <p class="article-excerpt-sm">
+            The history of Islamic thought is not a linear march toward a single model of governance.
+            It is a sophisticated dialogue between the judge, the king, and the mystic.
+          </p>
+          <div class="article-meta-sm">
+            <span>NAHJ Team</span>
+            <span class="sep">·</span>
+            <span>9 March 2025</span>
+          </div>
+          <a href="/articles/beyond-the-headlines-islamic-governance-and-mysticism" class="read-link-sm">Read →</a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- AIMS & SCOPE -->
+  <section class="section-scope">
+    <div class="container">
+      <div class="scope-grid">
+        <div class="scope-left">
+          <span class="section-label">About the Journal</span>
+          <div class="gold-rule"></div>
+          <h2 class="section-h2">Aims &amp; Scope</h2>
+          <p>
+            NAHJ Journal publishes original peer-reviewed research engaging with Islamic intellectual
+            traditions alongside contemporary questions of politics, society, ethics, and global affairs.
+            We welcome work that is rigorous in method, serious in engagement with classical sources,
+            and alive to the pressing concerns of the present.
+          </p>
+          <p>
+            We publish research articles, review essays, and critical commentaries. All submissions
+            undergo double-blind peer review. The journal is fully open access with no author charges.
+          </p>
+          <a href="/submit" class="btn-primary">Submit Your Research</a>
+        </div>
+        <div class="scope-right">
+          <div class="scope-areas">
+            <div class="scope-area-title">Focus Areas</div>
+            {[
+              'Islamic political thought and jurisprudence',
+              'Theology, philosophy, and metaphysics',
+              'Ethics, bioethics, and moral philosophy',
+              'Society, culture, and identity',
+              'Comparative religion and interreligious dialogue',
+              'History of ideas and intellectual history',
+              'Contemporary Muslim societies and politics',
+              'Sufism, spirituality, and mystical traditions',
+            ].map(area => (
+              <div class="scope-item">
+                <span class="scope-dot">◆</span>
+                <span>{area}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOURNAL SPECS -->
+  <section class="section-specs">
+    <div class="container">
+      <span class="section-label">Journal Information</span>
+      <div class="gold-rule"></div>
+      <div class="specs-grid">
+        {[
+          { label: 'Publisher', value: 'Nahj Institute' },
+          { label: 'Frequency', value: 'Twice yearly' },
+          { label: 'Review Process', value: 'Double-blind peer review' },
+          { label: 'Access Type', value: 'Fully open access' },
+          { label: 'Article Charges', value: 'None — free to publish' },
+          { label: 'Licence', value: 'CC BY 4.0' },
+          { label: 'First Issue', value: 'Spring 2026' },
+          { label: 'ISSN', value: 'Pending registration' },
+        ].map(spec => (
+          <div class="spec-item">
+            <div class="spec-label">{spec.label}</div>
+            <div class="spec-value">{spec.value}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL FOR SUBMISSIONS -->
+  <section class="section-cfs">
+    <div class="container-narrow">
+      <span class="section-label" style="color:var(--gold-light)">Open for Submissions</span>
+      <div class="gold-rule"></div>
+      <h2 class="cfs-heading">Call for Papers — Vol. 2 · Autumn 2026</h2>
+      <p class="cfs-text">
+        NAHJ Journal invites submissions for its second issue. We welcome research articles of
+        6,000–10,000 words, review essays, and critical commentaries. Submissions are accepted
+        on a rolling basis. All published research is freely available without embargo.
+      </p>
+      <div class="cfs-buttons">
+        <a href="/submit" class="btn-gold">Submit a Manuscript</a>
+        <a href="/submit" class="btn-outline-light">Author Guidelines</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style is:global>
+/* HERO */
+.journal-hero {
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+  padding: 4rem 0 3.5rem;
+}
+
+.hero-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 4rem;
+  align-items: start;
+}
+
+.hero-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 1rem;
+}
+
+.hero-desc {
+  font-size: 18px;
+  color: var(--charcoal);
+  line-height: 1.78;
+  max-width: 560px;
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  font-size: 12px;
+  font-family: 'Crimson Pro', serif;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.hero-issue-card {
+  background: var(--navy);
+  padding: 2rem;
+  color: var(--white);
+}
+
+.issue-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.issue-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1.25rem;
+}
+
+.issue-card-theme {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.theme-label {
+  display: block;
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.theme-value {
+  font-size: 16px;
+  color: rgba(255,255,255,0.85);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.issue-card-meta {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 1rem;
+}
+
+.meta-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  color: rgba(255,255,255,0.55);
+  padding: 0.3rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.meta-row span:last-child { color: var(--white); }
+
+/* ARTICLES SECTION */
+.section-articles {
+  padding: 4rem 0;
+  background: var(--white);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.5rem;
+}
+
+.section-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0;
+}
+
+.all-link {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+  white-space: nowrap;
+}
+.all-link:hover { color: var(--gold); }
+
+.articles-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+
+.article-featured {
+  border-right: 1px solid var(--border);
+  background: var(--navy);
+}
+
+.article-featured-inner {
+  padding: 2.5rem;
+}
+
+.article-type {
+  display: inline-block;
+  padding: 3px 10px;
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.article-category {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+  margin-bottom: 0.75rem;
+}
+
+.article-title a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  line-height: 1.3;
+}
+.article-title a:hover { color: var(--gold-light); }
+
+.article-excerpt {
+  font-size: 16px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.7;
+  margin: 1rem 0;
+  font-weight: 300;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 1.25rem;
+}
+.article-meta .sep { margin: 0 0.4rem; }
+
+.read-link {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  text-decoration: none;
+}
+.read-link:hover { color: var(--gold-light); }
+
+.article-card { padding: 2.5rem; background: var(--cream); }
+
+.article-type-sm {
+  display: inline-block;
+  padding: 3px 10px;
+  border: 1px solid var(--navy);
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.article-cat-sm {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 0.75rem;
+}
+
+.article-title-sm a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1.3;
+}
+.article-title-sm a:hover { color: var(--teal); }
+
+.article-excerpt-sm {
+  font-size: 16px;
+  color: var(--charcoal);
+  line-height: 1.7;
+  margin: 0.75rem 0;
+  font-weight: 300;
+}
+
+.article-meta-sm {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+.article-meta-sm .sep { margin: 0 0.4rem; }
+
+.read-link-sm {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+  text-decoration: none;
+}
+.read-link-sm:hover { color: var(--gold); }
+
+/* SCOPE */
+.section-scope {
+  padding: 4rem 0;
+  background: var(--cream);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.scope-left p {
+  font-size: 17px;
+  color: var(--charcoal);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.scope-areas {
+  background: var(--white);
+  border: 1px solid var(--border);
+  padding: 2rem;
+}
+
+.scope-area-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.scope-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+  color: var(--charcoal);
+}
+.scope-item:last-child { border-bottom: none; }
+
+.scope-dot {
+  color: var(--gold);
+  font-size: 8px;
+  flex-shrink: 0;
+  position: relative;
+  top: -2px;
+}
+
+/* SPECS */
+.section-specs {
+  padding: 4rem 0;
+  background: var(--white);
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+.spec-item {
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.spec-item:nth-child(4n) { border-right: none; }
+.spec-item:nth-last-child(-n+4) { border-bottom: none; }
+
+.spec-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.spec-value {
+  font-size: 16px;
+  color: var(--navy);
+  font-weight: 400;
+}
+
+/* CFS */
+.section-cfs {
+  padding: 4.5rem 0;
+  background: var(--navy);
+  text-align: center;
+}
+
+.cfs-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 1.25rem;
+}
+
+.cfs-text {
+  font-size: 18px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.78;
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.cfs-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-outline-light {
+  display: inline-block;
+  background: transparent;
+  color: rgba(255,255,255,0.75);
+  font-family: 'Crimson Pro', serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+.btn-outline-light:hover {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+@media (max-width: 768px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-issue-card { display: none; }
+  .articles-grid { grid-template-columns: 1fr; }
+  .article-featured { border-right: none; border-bottom: 1px solid var(--border); }
+  .scope-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .specs-grid { grid-template-columns: repeat(2, 1fr); }
+  .spec-item:nth-child(2n) { border-right: none; }
+  .spec-item:nth-child(4n) { border-right: 1px solid var(--border); }
+}
+</style>

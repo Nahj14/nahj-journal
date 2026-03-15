@@ -1,0 +1,355 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Submit" description="Author guidelines and manuscript submission for NAHJ Journal.">
+
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / Submit</nav>
+      <span class="section-label">For Authors</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">Submit Your Research</h1>
+      <p class="page-sub">Guidelines for manuscript preparation and submission to NAHJ Journal.</p>
+    </div>
+  </div>
+
+  <div class="submit-body">
+    <div class="container">
+      <div class="submit-grid">
+
+        <!-- Main content -->
+        <div class="submit-main">
+
+          <section class="guide-section">
+            <h2 class="guide-h2">What We Publish</h2>
+            <p>NAHJ Journal welcomes original, previously unpublished research across its areas of focus. We publish three types of contributions:</p>
+
+            <div class="pub-types">
+              <div class="pub-type">
+                <div class="pub-type-name">Research Article</div>
+                <div class="pub-type-length">6,000 – 10,000 words</div>
+                <p>Original scholarly research with full argumentation, evidence, and engagement with existing literature. Standard article format with abstract and references.</p>
+              </div>
+              <div class="pub-type">
+                <div class="pub-type-name">Review Essay</div>
+                <div class="pub-type-length">3,000 – 6,000 words</div>
+                <p>Critical engagement with one or more recent publications, situating them within broader scholarly conversations. More than a book review — an essay in its own right.</p>
+              </div>
+              <div class="pub-type">
+                <div class="pub-type-name">Critical Commentary</div>
+                <div class="pub-type-length">1,500 – 3,000 words</div>
+                <p>Shorter interventions addressing a specific question, debate, or problem with precision and intellectual rigour. No footnotes required but references must be cited.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="guide-section">
+            <h2 class="guide-h2">Submission Requirements</h2>
+            <div class="req-list">
+              {[
+                { label: 'Language', value: 'English. Arabic-language submissions may be considered with an English abstract.' },
+                { label: 'File format', value: 'Microsoft Word (.docx) or LaTeX (.tex with PDF)' },
+                { label: 'Font', value: 'Times New Roman or similar serif, 12pt, double-spaced' },
+                { label: 'Margins', value: '1 inch / 2.5cm on all sides' },
+                { label: 'Abstract', value: '150–250 words for research articles. Not required for commentaries.' },
+                { label: 'Keywords', value: '4–6 keywords following the abstract' },
+                { label: 'Citations', value: 'Chicago author-date or footnote style, applied consistently throughout' },
+                { label: 'Anonymity', value: 'Manuscripts must be fully anonymised. Remove all identifying information.' },
+                { label: 'Transliteration', value: 'Use IJMES transliteration standard for Arabic. Apply consistently.' },
+                { label: 'Originality', value: 'Must not be under review elsewhere or previously published' },
+              ].map(req => (
+                <div class="req-item">
+                  <div class="req-label">{req.label}</div>
+                  <div class="req-value">{req.value}</div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="guide-section">
+            <h2 class="guide-h2">Review Process</h2>
+            <p>All submissions undergo initial editorial screening for scope and quality. Manuscripts that pass screening are sent for double-blind peer review by at least two qualified scholars.</p>
+            <p>We aim to provide decisions within 10 weeks of submission. Decisions include: Accept, Minor Revision, Major Revision, or Reject. All decisions are accompanied by reviewer comments.</p>
+            <div class="process-steps">
+              {[
+                { num: '01', label: 'Submit', desc: 'Complete the online submission form with your anonymised manuscript and cover letter.' },
+                { num: '02', label: 'Editorial Review', desc: 'The editorial team assesses scope fit and minimum quality standards. Response within 2 weeks.' },
+                { num: '03', label: 'Peer Review', desc: 'Qualifying manuscripts are sent to two independent reviewers. Double-blind throughout.' },
+                { num: '04', label: 'Decision', desc: 'Authors receive a decision with full reviewer comments within 10 weeks of submission.' },
+                { num: '05', label: 'Revision', desc: 'Revised manuscripts are reviewed by the original reviewers or editors as appropriate.' },
+                { num: '06', label: 'Publication', desc: 'Accepted articles are typeset, proofread, and published open access with a DOI.' },
+              ].map(step => (
+                <div class="proc-step">
+                  <div class="proc-num">{step.num}</div>
+                  <div class="proc-body">
+                    <div class="proc-label">{step.label}</div>
+                    <div class="proc-desc">{step.desc}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section class="guide-section">
+            <h2 class="guide-h2">Open Access &amp; Copyright</h2>
+            <p>NAHJ Journal is fully open access. All published articles are freely available immediately upon publication with no embargo period and no subscription fees for readers.</p>
+            <p>Authors retain copyright. Published articles are licensed under Creative Commons Attribution 4.0 (CC BY 4.0), meaning anyone may share and adapt the work provided they give appropriate credit.</p>
+            <p>There are no article processing charges. Publication in NAHJ Journal is free for authors.</p>
+          </section>
+
+        </div>
+
+        <!-- Sidebar -->
+        <div class="submit-sidebar">
+          <div class="sidebar-cta">
+            <div class="sidebar-cta-label">Ready to Submit?</div>
+            <p>Complete the online submission form. Ensure your manuscript is fully anonymised before uploading.</p>
+            <a href="/submit/manuscript" class="btn-primary" style="display:block;text-align:center;">Submit Manuscript</a>
+          </div>
+
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Key Dates</div>
+            <div class="sidebar-dates">
+              <div class="date-item">
+                <div class="date-label">Vol. 2 Deadline</div>
+                <div class="date-value">30 June 2026</div>
+              </div>
+              <div class="date-item">
+                <div class="date-label">Expected Publication</div>
+                <div class="date-value">October 2026</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Questions?</div>
+            <p style="font-size:15px;color:var(--muted);font-weight:300;">Contact the editorial team for submission queries.</p>
+            <a href="mailto:submissions@nahjinstitute.com" style="font-size:14px;color:var(--teal);word-break:break-all;">submissions@nahjinstitute.com</a>
+          </div>
+
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Other Pathways</div>
+            <a href="/review/reviewer" class="sidebar-link">Join as Reviewer →</a>
+            <a href="/review/board" class="sidebar-link">Editorial Board →</a>
+            <a href="/review/special-issue" class="sidebar-link">Propose Special Issue →</a>
+            <a href="/review/guest-editor" class="sidebar-link">Guest Editorship →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style is:global>
+.submit-body { padding: 3.5rem 0 5rem; background: var(--white); }
+
+.submit-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3.5rem;
+  align-items: start;
+}
+
+.guide-section {
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.guide-section:last-child { border-bottom: none; }
+
+.guide-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 1rem;
+}
+
+.guide-section p {
+  font-size: 17px;
+  color: var(--charcoal);
+  line-height: 1.78;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.pub-types {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.pub-type {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  padding: 1.5rem;
+}
+
+.pub-type-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.pub-type-length {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.pub-type p {
+  font-size: 15px !important;
+  margin-bottom: 0 !important;
+}
+
+.req-list {
+  border: 1px solid var(--border);
+  margin-top: 1rem;
+}
+
+.req-item {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  font-size: 16px;
+}
+.req-item:last-child { border-bottom: none; }
+
+.req-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  padding-top: 2px;
+}
+
+.req-value { color: var(--charcoal); font-weight: 300; }
+
+.process-steps {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+}
+
+.proc-step {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  align-items: flex-start;
+}
+.proc-step:last-child { border-bottom: none; }
+
+.proc-num {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--gold);
+  min-width: 28px;
+  padding-top: 2px;
+}
+
+.proc-label {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.proc-desc {
+  font-size: 15px;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* Sidebar */
+.sidebar-cta {
+  background: var(--navy);
+  padding: 1.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-cta-label {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
+.sidebar-cta p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.sidebar-box {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.sidebar-box-title {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar-dates { display: flex; flex-direction: column; gap: 0.75rem; }
+
+.date-label {
+  font-size: 12px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.15rem;
+}
+
+.date-value {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.sidebar-link {
+  display: block;
+  font-size: 15px;
+  color: var(--teal);
+  text-decoration: none;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s;
+}
+.sidebar-link:last-child { border-bottom: none; }
+.sidebar-link:hover { color: var(--gold); }
+
+@media (max-width: 768px) {
+  .submit-grid { grid-template-columns: 1fr; }
+  .pub-types { grid-template-columns: 1fr; }
+  .req-item { grid-template-columns: 1fr; gap: 0.25rem; }
+}
+</style>

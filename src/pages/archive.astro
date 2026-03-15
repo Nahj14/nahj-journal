@@ -1,0 +1,296 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Archive" description="Browse all issues and articles published in NAHJ Journal.">
+
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / Archive</nav>
+      <span class="section-label">All Issues</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">Archive</h1>
+      <p class="page-sub">All volumes and issues published by NAHJ Journal, freely accessible under CC BY 4.0.</p>
+    </div>
+  </div>
+
+  <div class="archive-body">
+    <div class="container">
+
+      <!-- Volume 1 -->
+      <div class="volume-block">
+        <div class="volume-header">
+          <div class="volume-title">Volume 1 · 2026</div>
+        </div>
+
+        <!-- Issue 1 -->
+        <div class="issue-block">
+          <div class="issue-header">
+            <div class="issue-info">
+              <div class="issue-title">Issue 1 · Spring 2026</div>
+              <div class="issue-theme">Theme: Authority, Legitimacy &amp; Islamic Governance</div>
+            </div>
+            <div class="issue-meta">
+              <span>3 articles</span>
+              <span class="dot">·</span>
+              <span>Published March 2026</span>
+            </div>
+          </div>
+
+          <div class="issue-articles">
+
+            <div class="archive-article">
+              <div class="arch-left">
+                <span class="arch-type">Essay</span>
+                <span class="arch-cat">Theology &amp; Politics</span>
+              </div>
+              <div class="arch-main">
+                <h3 class="arch-title">
+                  <a href="/articles/ontological-sovereignty-the-imam-as-hujjat-allah-and-the-divine-organ-in-early-shii-doctrine">
+                    Ontological Sovereignty: The Imam as Hujjat Allah and the Divine Organ in Early Shi'i Doctrine
+                  </a>
+                </h3>
+                <div class="arch-meta">
+                  <span>NAHJ Editorial Team</span>
+                  <span class="dot">·</span>
+                  <span>15 March 2025</span>
+                  <span class="dot">·</span>
+                  <span>8,240 words</span>
+                </div>
+              </div>
+              <div class="arch-right">
+                <a href="/articles/ontological-sovereignty-the-imam-as-hujjat-allah-and-the-divine-organ-in-early-shii-doctrine" class="arch-read">Read</a>
+              </div>
+            </div>
+
+            <div class="archive-article">
+              <div class="arch-left">
+                <span class="arch-type">Essay</span>
+                <span class="arch-cat">Theology &amp; Politics</span>
+              </div>
+              <div class="arch-main">
+                <h3 class="arch-title">
+                  <a href="/articles/beyond-the-headlines-islamic-governance-and-mysticism">
+                    Beyond the Headlines: Islamic Governance and Mysticism
+                  </a>
+                </h3>
+                <div class="arch-meta">
+                  <span>NAHJ Team</span>
+                  <span class="dot">·</span>
+                  <span>9 March 2025</span>
+                  <span class="dot">·</span>
+                  <span>6,100 words</span>
+                </div>
+              </div>
+              <div class="arch-right">
+                <a href="/articles/beyond-the-headlines-islamic-governance-and-mysticism" class="arch-read">Read</a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Future volumes placeholder -->
+      <div class="volume-coming">
+        <div class="volume-coming-inner">
+          <span class="section-label">Next Issue</span>
+          <div class="gold-rule"></div>
+          <h3>Volume 1, Issue 2 · Autumn 2026</h3>
+          <p>Currently open for submissions. Expected publication October 2026.</p>
+          <a href="/submit" class="btn-primary">Submit Your Research</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style is:global>
+.page-hero {
+  background: var(--navy);
+  padding: 3rem 0 2.5rem;
+  border-bottom: 3px solid var(--gold);
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+.breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+.breadcrumb a:hover { color: var(--gold); }
+
+.page-h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 2.8vw, 36px);
+  font-weight: 600;
+  color: var(--white);
+  margin: 0 0 0.5rem;
+}
+
+.page-sub {
+  font-size: 18px;
+  color: rgba(255,255,255,0.6);
+  font-weight: 300;
+  margin: 0;
+}
+
+.archive-body { padding: 3.5rem 0 5rem; }
+
+.volume-block {
+  margin-bottom: 3rem;
+}
+
+.volume-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--navy);
+}
+
+.volume-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.issue-block {
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+.issue-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--cream);
+  border-bottom: 1px solid var(--border);
+}
+
+.issue-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.issue-theme {
+  font-size: 14px;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.2rem;
+}
+
+.issue-meta {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: right;
+}
+.issue-meta .dot { margin: 0 0.4rem; }
+
+.issue-articles { padding: 0; }
+
+.archive-article {
+  display: grid;
+  grid-template-columns: 140px 1fr 80px;
+  gap: 1.5rem;
+  align-items: start;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+.archive-article:last-child { border-bottom: none; }
+
+.arch-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  padding-top: 3px;
+}
+
+.arch-type {
+  display: inline-block;
+  padding: 2px 8px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.arch-cat {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.arch-title a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--navy);
+  text-decoration: none;
+  line-height: 1.35;
+}
+.arch-title a:hover { color: var(--teal); }
+
+.arch-meta {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 0.5rem;
+}
+.arch-meta .dot { margin: 0 0.4rem; }
+
+.arch-read {
+  display: inline-block;
+  padding: 6px 14px;
+  border: 1.5px solid var(--navy);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.2s;
+}
+.arch-read:hover { background: var(--navy); color: var(--white); }
+
+.volume-coming {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+  padding: 2.5rem;
+  margin-top: 2rem;
+}
+
+.volume-coming h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: var(--navy);
+  margin: 0 0 0.75rem;
+}
+
+.volume-coming p {
+  font-size: 17px;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+  font-weight: 300;
+}
+
+@media (max-width: 768px) {
+  .archive-article { grid-template-columns: 1fr; }
+  .arch-right { padding-top: 0; }
+  .issue-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+</style>

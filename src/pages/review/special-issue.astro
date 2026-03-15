@@ -1,0 +1,105 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Propose a Special Issue" description="Submit a special issue proposal to NAHJ Journal.">
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/review">For Reviewers</a> / Special Issue</nav>
+      <span class="section-label">Special Issues</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">Propose a Special Issue</h1>
+      <p class="page-sub">We welcome proposals for thematic issues from individual scholars or collaborative teams.</p>
+    </div>
+  </div>
+
+  <div class="form-body">
+    <div class="container">
+      <div class="form-layout">
+        <div class="form-main">
+          <form action="https://formspree.io/f/YOUR_SPECIAL_ISSUE_FORM_ID" method="POST">
+            <div class="form-section">
+              <h2 class="form-section-title">Proposer Information</h2>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="first_name">First Name *</label>
+                  <input type="text" id="first_name" name="first_name" required />
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name *</label>
+                  <input type="text" id="last_name" name="last_name" required />
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="email">Email *</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="affiliation">Affiliation *</label>
+                  <input type="text" id="affiliation" name="affiliation" required />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="form-section-title">Issue Proposal</h2>
+              <div class="form-group">
+                <label for="title">Proposed Theme / Title *</label>
+                <input type="text" id="title" name="title" required placeholder="Working title for the special issue" />
+              </div>
+              <div class="form-group">
+                <label for="rationale">Rationale and Significance *</label>
+                <textarea id="rationale" name="rationale" required rows="6" placeholder="Why is this theme timely and important? What gap in the literature does it address? (300–500 words)"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="scope">Scope and Focus *</label>
+                <textarea id="scope" name="scope" required rows="4" placeholder="What specific questions or problems will contributions address?"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="contributors">Potential Contributors</label>
+                <textarea id="contributors" name="contributors" rows="4" placeholder="List scholars you would invite to contribute, with their affiliations (not required)"></textarea>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="articles">Expected Number of Articles</label>
+                  <input type="number" id="articles" name="articles" placeholder="Typically 6–10" />
+                </div>
+                <div class="form-group">
+                  <label for="timeline">Proposed Timeline</label>
+                  <input type="text" id="timeline" name="timeline" placeholder="e.g. Contributions by June 2027" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn-primary">Submit Proposal</button>
+            </div>
+          </form>
+        </div>
+        <div class="form-sidebar">
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">What We Look For</div>
+            {[
+              'Clear intellectual focus and rationale',
+              'Identified scholarly gap or timely question',
+              'Realistic timeline for commissioning',
+              'Diversity of methodological approaches',
+              'Fit with journal focus areas',
+            ].map(item => (
+              <div class="check-item">
+                <span class="check-icon">◆</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Also Consider</div>
+            <a href="/review/guest-editor" class="sidebar-link">Guest Editorship →</a>
+            <a href="/review/reviewer" class="sidebar-link">Join as Reviewer →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

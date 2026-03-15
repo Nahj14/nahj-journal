@@ -1,0 +1,123 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Join as Reviewer" description="Apply to join the NAHJ Journal peer review panel.">
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/review">For Reviewers</a> / Reviewer Application</nav>
+      <span class="section-label">Peer Review Panel</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">Join as a Reviewer</h1>
+      <p class="page-sub">Apply to conduct peer reviews for NAHJ Journal. We welcome scholars with expertise across our focus areas.</p>
+    </div>
+  </div>
+
+  <div class="form-body">
+    <div class="container">
+      <div class="form-layout">
+        <div class="form-main">
+
+          <div class="eligibility-box">
+            <div class="elig-title">Reviewer Eligibility</div>
+            <div class="elig-list">
+              {[
+                'Doctoral degree in a relevant field or equivalent research experience',
+                'Active publication record in Islamic studies, political science, philosophy, or related disciplines',
+                'Ability to complete reviews within 6 weeks',
+                'Commitment to double-blind review protocol and academic confidentiality',
+                'Willingness to provide substantive, constructive feedback',
+              ].map(item => (
+                <div class="elig-item">
+                  <span class="elig-dot">◆</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <form action="https://formspree.io/f/YOUR_REVIEWER_FORM_ID" method="POST">
+            <div class="form-section">
+              <h2 class="form-section-title">Personal Information</h2>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="first_name">First Name *</label>
+                  <input type="text" id="first_name" name="first_name" required />
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name *</label>
+                  <input type="text" id="last_name" name="last_name" required />
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="affiliation">Institution / Affiliation *</label>
+                  <input type="text" id="affiliation" name="affiliation" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="position">Current Position *</label>
+                <input type="text" id="position" name="position" required placeholder="e.g. Associate Professor, Independent Researcher" />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="form-section-title">Expertise &amp; Areas</h2>
+              <div class="form-group">
+                <label for="expertise">Primary Areas of Expertise *</label>
+                <textarea id="expertise" name="expertise" required rows="4" placeholder="Describe your research specialisations and areas of scholarly expertise"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="publications">Selected Publications</label>
+                <textarea id="publications" name="publications" rows="4" placeholder="List 3–5 recent or relevant publications (author, title, journal, year)"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="languages">Languages (if reviewing Arabic-language work)</label>
+                <input type="text" id="languages" name="languages" placeholder="e.g. Arabic (reading), Persian (reading)" />
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="form-section-title">Additional Information</h2>
+              <div class="form-group">
+                <label for="motivation">Why do you wish to review for NAHJ Journal?</label>
+                <textarea id="motivation" name="motivation" rows="4" placeholder="Optional but appreciated"></textarea>
+              </div>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" class="btn-primary">Submit Application</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="form-sidebar">
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">What Reviewers Do</div>
+            {[
+              'Assess originality and scholarly contribution',
+              'Evaluate argumentation and use of evidence',
+              'Check engagement with existing literature',
+              'Provide structured written feedback',
+              'Recommend accept, revise, or reject',
+              'Typically 2 reviews per year requested',
+            ].map(item => (
+              <div class="check-item">
+                <span class="check-icon">◆</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Questions</div>
+            <a href="mailto:journal@nahjinstitute.com" style="font-size:13px;color:var(--teal);">journal@nahjinstitute.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

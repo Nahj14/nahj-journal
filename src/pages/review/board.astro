@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Editorial Board Application" description="Apply for a position on the NAHJ Journal editorial board.">
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / <a href="/review">For Reviewers</a> / Editorial Board</nav>
+      <span class="section-label">Editorial Board</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">Apply for Editorial Board</h1>
+      <p class="page-sub">Board members provide strategic guidance and scholarly oversight for NAHJ Journal.</p>
+    </div>
+  </div>
+
+  <div class="form-body">
+    <div class="container">
+      <div class="form-layout">
+        <div class="form-main">
+
+          <div class="eligibility-box">
+            <div class="elig-title">Board Member Eligibility</div>
+            <div class="elig-list">
+              {[
+                'Senior scholar with established publication record',
+                'Recognised expertise in one or more of our focus areas',
+                'Willingness to attend annual board meetings (virtual)',
+                'Ability to contribute to editorial policy discussions',
+                'Commitment to open access scholarly publishing',
+              ].map(item => (
+                <div class="elig-item">
+                  <span class="elig-dot">◆</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <form action="https://formspree.io/f/YOUR_BOARD_FORM_ID" method="POST">
+            <div class="form-section">
+              <h2 class="form-section-title">Personal Information</h2>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="first_name">First Name *</label>
+                  <input type="text" id="first_name" name="first_name" required />
+                </div>
+                <div class="form-group">
+                  <label for="last_name">Last Name *</label>
+                  <input type="text" id="last_name" name="last_name" required />
+                </div>
+              </div>
+              <div class="form-row-2">
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+                <div class="form-group">
+                  <label for="affiliation">Institution *</label>
+                  <input type="text" id="affiliation" name="affiliation" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="position">Current Position *</label>
+                <input type="text" id="position" name="position" required />
+              </div>
+            </div>
+            <div class="form-section">
+              <h2 class="form-section-title">Scholarly Profile</h2>
+              <div class="form-group">
+                <label for="expertise">Areas of Expertise *</label>
+                <textarea id="expertise" name="expertise" required rows="4"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="publications">Selected Publications *</label>
+                <textarea id="publications" name="publications" required rows="5" placeholder="List 5 key publications"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="contribution">How would you contribute to NAHJ Journal's direction? *</label>
+                <textarea id="contribution" name="contribution" required rows="4"></textarea>
+              </div>
+            </div>
+            <div class="form-submit-row">
+              <button type="submit" class="btn-primary">Submit Application</button>
+            </div>
+          </form>
+        </div>
+        <div class="form-sidebar">
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Board Responsibilities</div>
+            {[
+              'Strategic direction and editorial policy',
+              'Annual virtual board meeting',
+              'Advise on special issue themes',
+              'Occasional manuscript consultation',
+              'Represent the journal in scholarly networks',
+            ].map(item => (
+              <div class="check-item">
+                <span class="check-icon">◆</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+          <div class="sidebar-box">
+            <div class="sidebar-box-title">Also Consider</div>
+            <a href="/review/reviewer" class="sidebar-link">Join as Reviewer →</a>
+            <a href="/review/special-issue" class="sidebar-link">Propose Special Issue →</a>
+            <a href="/review/guest-editor" class="sidebar-link">Guest Editorship →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

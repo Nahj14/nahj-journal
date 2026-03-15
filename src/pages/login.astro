@@ -1,0 +1,264 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Login" description="Log in to your NAHJ Journal account to track submissions and reviews.">
+
+  <div class="login-page">
+    <div class="login-left">
+      <div class="login-brand">
+        <div class="login-brand-name">NAHJ JOURNAL</div>
+        <div class="login-brand-sub">Author &amp; Reviewer Portal</div>
+      </div>
+      <div class="login-features">
+        <div class="login-feature">
+          <span class="lf-icon">◆</span>
+          <div>
+            <div class="lf-title">Track Submissions</div>
+            <div class="lf-desc">Monitor the status of your manuscript through each stage of review</div>
+          </div>
+        </div>
+        <div class="login-feature">
+          <span class="lf-icon">◆</span>
+          <div>
+            <div class="lf-title">Reviewer Dashboard</div>
+            <div class="lf-desc">Access manuscripts assigned for review and submit your reports</div>
+          </div>
+        </div>
+        <div class="login-feature">
+          <span class="lf-icon">◆</span>
+          <div>
+            <div class="lf-title">Correspondence</div>
+            <div class="lf-desc">Receive and respond to editorial decisions and revision requests</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="login-right">
+      <div class="login-form-wrap">
+        <div class="login-form-title">Sign In</div>
+        <div class="login-form-sub">Access your author or reviewer account</div>
+
+        <div class="login-notice">
+          <strong>Notice:</strong> The online submission portal is currently being set up.
+          Until it is live, please submit manuscripts directly to
+          <a href="mailto:submissions@nahjinstitute.com">submissions@nahjinstitute.com</a>
+          with the subject line "Manuscript Submission".
+        </div>
+
+        <form class="login-form" action="#" method="POST">
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" />
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Your password" />
+          </div>
+          <div class="login-options">
+            <label class="remember-label">
+              <input type="checkbox" name="remember" />
+              <span>Remember me</span>
+            </label>
+            <a href="#" class="forgot-link">Forgot password?</a>
+          </div>
+          <button type="submit" class="btn-primary login-btn" disabled>Sign In (Coming Soon)</button>
+        </form>
+
+        <div class="login-divider">
+          <span>New to NAHJ Journal?</span>
+        </div>
+
+        <div class="login-actions">
+          <a href="/submit/manuscript" class="btn-outline" style="display:block;text-align:center;margin-bottom:0.75rem;">Submit a Manuscript</a>
+          <a href="/review/reviewer" class="btn-outline" style="display:block;text-align:center;">Apply as Reviewer</a>
+        </div>
+
+        <div class="login-contact">
+          For account issues contact <a href="mailto:journal@nahjinstitute.com">journal@nahjinstitute.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style is:global>
+.login-page {
+  min-height: calc(100vh - 200px);
+  display: grid;
+  grid-template-columns: 1fr 480px;
+}
+
+.login-left {
+  background: var(--navy);
+  padding: 5rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-brand-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.3rem;
+}
+
+.login-brand-sub {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 3rem;
+}
+
+.login-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.login-feature {
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+}
+
+.lf-icon {
+  color: var(--gold);
+  font-size: 10px;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.lf-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.lf-desc {
+  font-size: 15px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.login-right {
+  background: var(--cream);
+  border-left: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 2.5rem;
+}
+
+.login-form-wrap { width: 100%; max-width: 380px; }
+
+.login-form-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.login-form-sub {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+.login-notice {
+  background: rgba(200,162,82,0.12);
+  border: 1px solid rgba(200,162,82,0.4);
+  border-left: 3px solid var(--gold);
+  padding: 0.85rem 1rem;
+  font-size: 14px;
+  color: var(--charcoal);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.login-notice a { color: var(--teal); }
+
+.login-form .form-group { margin-bottom: 1.1rem; }
+
+.login-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.remember-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 14px;
+  color: var(--charcoal);
+  cursor: pointer;
+  letter-spacing: 0;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.remember-label input { width: auto; }
+
+.forgot-link {
+  font-size: 14px;
+  color: var(--teal);
+  text-decoration: none;
+}
+.forgot-link:hover { color: var(--gold); }
+
+.login-btn {
+  width: 100%;
+  text-align: center;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.login-divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.login-divider::before,
+.login-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.login-divider span {
+  font-size: 13px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.login-contact {
+  margin-top: 1.5rem;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+}
+.login-contact a { color: var(--teal); }
+
+@media (max-width: 900px) {
+  .login-page { grid-template-columns: 1fr; }
+  .login-left { display: none; }
+  .login-right { padding: 3rem 1.5rem; }
+}
+</style>

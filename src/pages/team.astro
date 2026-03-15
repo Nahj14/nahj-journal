@@ -1,0 +1,385 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Editorial Team" description="Meet the editors, reviewers, and advisory board of NAHJ Journal.">
+
+  <div class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb"><a href="/">Home</a> / Editorial Team</nav>
+      <span class="section-label">People</span>
+      <div class="gold-rule"></div>
+      <h1 class="page-h1">Editorial Team</h1>
+      <p class="page-sub">The scholars and researchers who guide NAHJ Journal's intellectual direction and review process.</p>
+    </div>
+  </div>
+
+  <div class="team-body">
+    <div class="container">
+
+      <!-- Editor in Chief -->
+      <section class="team-section">
+        <div class="team-section-header">
+          <span class="section-label">Leadership</span>
+          <div class="gold-rule"></div>
+          <h2 class="team-h2">Editor in Chief</h2>
+        </div>
+        <div class="team-grid-featured">
+          <div class="member-featured">
+            <div class="member-avatar-lg">
+              <div class="avatar-placeholder-lg">
+                <span class="avatar-initials">TBA</span>
+              </div>
+            </div>
+            <div class="member-info-featured">
+              <div class="member-name-lg">To Be Appointed</div>
+              <div class="member-role">Editor in Chief</div>
+              <div class="member-affiliation">Nahj Institute</div>
+              <p class="member-bio">
+                The Editor in Chief position will be filled upon appointment of a senior scholar
+                with expertise in Islamic intellectual history and contemporary Islamic thought.
+                Applications and nominations are welcome.
+              </p>
+              <a href="mailto:editor@nahjinstitute.com" class="member-contact">editor@nahjinstitute.com</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Editorial Board -->
+      <section class="team-section">
+        <div class="team-section-header">
+          <span class="section-label">Governance</span>
+          <div class="gold-rule"></div>
+          <h2 class="team-h2">Editorial Board</h2>
+          <p class="team-desc">The editorial board provides strategic oversight and scholarly direction for the journal.</p>
+        </div>
+        <div class="members-grid">
+          {[1,2,3,4].map(() => (
+            <div class="member-card">
+              <div class="member-avatar">
+                <div class="avatar-placeholder">
+                  <span>TBA</span>
+                </div>
+              </div>
+              <div class="member-name">To Be Appointed</div>
+              <div class="member-title">Editorial Board Member</div>
+              <div class="member-inst">Nahj Institute</div>
+            </div>
+          ))}
+        </div>
+        <div class="board-notice">
+          <p>Editorial board appointments are currently in progress. We are in the process of inviting senior scholars across our focus disciplines. Board members will be announced upon confirmation.</p>
+          <a href="/review/board" class="btn-outline">Apply for Editorial Board</a>
+        </div>
+      </section>
+
+      <!-- Peer Reviewers -->
+      <section class="team-section">
+        <div class="team-section-header">
+          <span class="section-label">Review Process</span>
+          <div class="gold-rule"></div>
+          <h2 class="team-h2">Peer Reviewers</h2>
+          <p class="team-desc">NAHJ Journal operates a double-blind peer review process. All submitted manuscripts are reviewed by at least two independent scholars with relevant expertise.</p>
+        </div>
+        <div class="review-info">
+          <div class="review-info-grid">
+            <div class="review-info-item">
+              <div class="review-info-label">Review Type</div>
+              <div class="review-info-value">Double-blind</div>
+            </div>
+            <div class="review-info-item">
+              <div class="review-info-label">Reviewers per Article</div>
+              <div class="review-info-value">Minimum 2</div>
+            </div>
+            <div class="review-info-item">
+              <div class="review-info-label">Review Timeframe</div>
+              <div class="review-info-value">6–10 weeks</div>
+            </div>
+            <div class="review-info-item">
+              <div class="review-info-label">Review Criteria</div>
+              <div class="review-info-value">Originality, rigour, significance</div>
+            </div>
+          </div>
+          <p class="review-note">
+            Reviewers are acknowledged annually in a dedicated notice. Individual review assignments remain confidential in accordance with double-blind protocol.
+          </p>
+          <a href="/review/reviewer" class="btn-primary">Join the Review Panel</a>
+        </div>
+      </section>
+
+      <!-- Managing Editor -->
+      <section class="team-section">
+        <div class="team-section-header">
+          <span class="section-label">Operations</span>
+          <div class="gold-rule"></div>
+          <h2 class="team-h2">Managing &amp; Production</h2>
+        </div>
+        <div class="managing-grid">
+          <div class="managing-item">
+            <div class="managing-role">Managing Editor</div>
+            <div class="managing-name">To Be Appointed</div>
+            <div class="managing-contact">
+              <a href="mailto:journal@nahjinstitute.com">journal@nahjinstitute.com</a>
+            </div>
+          </div>
+          <div class="managing-item">
+            <div class="managing-role">Production Editor</div>
+            <div class="managing-name">To Be Appointed</div>
+            <div class="managing-contact">
+              <a href="mailto:journal@nahjinstitute.com">journal@nahjinstitute.com</a>
+            </div>
+          </div>
+          <div class="managing-item">
+            <div class="managing-role">Copy Editor</div>
+            <div class="managing-name">To Be Appointed</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+</BaseLayout>
+
+<style is:global>
+.team-body {
+  padding: 3.5rem 0 5rem;
+  background: var(--white);
+}
+
+.team-section {
+  margin-bottom: 4rem;
+  padding-bottom: 4rem;
+  border-bottom: 1px solid var(--border);
+}
+.team-section:last-child { border-bottom: none; }
+
+.team-section-header { margin-bottom: 2rem; }
+
+.team-h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--navy);
+  margin: 0 0 0.5rem;
+}
+
+.team-desc {
+  font-size: 17px;
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 620px;
+}
+
+.member-featured {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  padding: 2.5rem;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--gold);
+}
+
+.avatar-placeholder-lg {
+  width: 120px;
+  height: 120px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar-initials {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.member-name-lg {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.25rem;
+}
+
+.member-role {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.2rem;
+}
+
+.member-affiliation {
+  font-size: 15px;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.member-bio {
+  font-size: 16px;
+  color: var(--charcoal);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.member-contact {
+  font-size: 14px;
+  color: var(--teal);
+  text-decoration: none;
+}
+.member-contact:hover { color: var(--gold); }
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.member-card {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.avatar-placeholder {
+  width: 64px;
+  height: 64px;
+  background: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.member-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.2rem;
+}
+
+.member-title {
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+}
+
+.member-inst {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.board-notice {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.board-notice p {
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0;
+  font-weight: 300;
+  flex: 1;
+}
+
+.review-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.review-info-item {
+  padding: 1.25rem 1.5rem;
+  border-right: 1px solid var(--border);
+}
+.review-info-item:last-child { border-right: none; }
+
+.review-info-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.review-info-value {
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.review-note {
+  font-size: 16px;
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1.25rem;
+}
+
+.managing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.managing-item {
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  background: var(--cream);
+}
+
+.managing-role {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.managing-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  color: var(--navy);
+  margin-bottom: 0.3rem;
+}
+
+.managing-contact a {
+  font-size: 14px;
+  color: var(--teal);
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .member-featured { grid-template-columns: 1fr; }
+  .members-grid { grid-template-columns: repeat(2, 1fr); }
+  .review-info-grid { grid-template-columns: repeat(2, 1fr); }
+  .review-info-item:nth-child(2n) { border-right: none; }
+  .review-info-item:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+  .managing-grid { grid-template-columns: 1fr; }
+  .board-notice { flex-direction: column; align-items: flex-start; }
+}
+</style>
