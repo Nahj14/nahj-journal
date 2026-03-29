@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Block access to internal/admin paths if added in future
+Disallow: /api/
+Disallow: /_astro/
+
+# Sitemap location
+Sitemap: https://journal.nahjinstitute.com/sitemap-index.xml

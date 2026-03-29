@@ -17,7 +17,7 @@ const {
   title,
   description,
   pubDate,
-  author = 'NAHJ Editorial Team',
+  author = 'NAHJ Journal',
   category = 'Research',
   type = 'Essay',
   readingTime,
@@ -27,14 +27,27 @@ const {
 const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
   day: 'numeric', month: 'long', year: 'numeric'
 });
+
+const pubDateISO = new Date(pubDate).toISOString();
 ---
 
-<BaseLayout title={title} description={excerpt || description}>
+<BaseLayout
+  title={title}
+  description={excerpt || description || `${title} — NAHJ Journal`}
+  ogType="article"
+  articleMeta={{
+    author,
+    pubDate: pubDateISO,
+    category,
+    volume: '1',
+    issue: '1',
+  }}
+>
 
   <!-- Article Hero -->
   <div class="article-hero">
     <div class="container-narrow">
-      <nav class="breadcrumb">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
         <a href="/">Home</a> /
         <a href="/archive">Archive</a> /
         <span>{category}</span>
@@ -50,7 +63,9 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
       <div class="article-byline">
         <div class="byline-author">{author}</div>
         <div class="byline-meta">
-          <span>{formattedDate}</span>
+          <span>
+            <time datetime={pubDateISO}>{formattedDate}</time>
+          </span>
           {readingTime && <><span class="sep">·</span><span>{readingTime} min read</span></>}
         </div>
       </div>
@@ -63,19 +78,33 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
       <div class="article-grid">
 
         <!-- Left: Share & Cite -->
-        <aside class="article-aside-left">
+        <aside class="article-aside-left" aria-label="Article tools">
           <div class="aside-sticky">
             <div class="aside-section">
               <div class="aside-label">Share</div>
               <div class="share-buttons">
-                <a href={`https://twitter.com/intent/tweet?url=${Astro.url}&text=${encodeURIComponent(title)}`} target="_blank" class="share-btn" title="Share on X">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.635 5.904-5.635Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <a
+                  href={`https://twitter.com/intent/tweet?url=${Astro.url}&text=${encodeURIComponent(title)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="share-btn"
+                  aria-label="Share on X (Twitter)"
+                  title="Share on X"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.261 5.635 5.904-5.635Zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                 </a>
-                <a href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`} target="_blank" class="share-btn" title="Share on Facebook">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <a
+                  href={`https://www.facebook.com/sharer/sharer.php?u=${Astro.url}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="share-btn"
+                  aria-label="Share on Facebook"
+                  title="Share on Facebook"
+                >
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </a>
-                <button class="share-btn" id="copy-link" title="Copy link">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <button class="share-btn" id="copy-link" aria-label="Copy article link to clipboard" title="Copy link">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
                 </button>
               </div>
             </div>
@@ -84,7 +113,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
               <div class="aside-label">Cite</div>
               <div class="cite-box">
                 <div class="cite-text">{author} ({new Date(pubDate).getFullYear()}). {title}. <em>NAHJ Journal</em>, 1(1).</div>
-                <button class="cite-copy" id="copy-cite">Copy</button>
+                <button class="cite-copy" id="copy-cite" aria-label="Copy citation to clipboard">Copy</button>
               </div>
             </div>
 
@@ -110,7 +139,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
           <div class="article-footer">
             <div class="af-licence">
               <strong>Licence:</strong> This article is published under
-              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>.
+              <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
               You are free to share and adapt with attribution.
             </div>
             <div class="af-cite">
@@ -120,7 +149,7 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
         </main>
 
         <!-- Right: Related -->
-        <aside class="article-aside-right">
+        <aside class="article-aside-right" aria-label="Related content">
           <div class="aside-sticky">
             <div class="aside-section">
               <div class="aside-label">Also in This Issue</div>
@@ -143,15 +172,25 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-GB', {
 <script>
 document.getElementById('copy-link')?.addEventListener('click', () => {
   navigator.clipboard.writeText(window.location.href);
-  const btn = document.getElementById('copy-link');
-  if (btn) { btn.style.color = 'var(--gold)'; setTimeout(() => btn.style.color = '', 2000); }
+  const btn = document.getElementById('copy-link') as HTMLButtonElement | null;
+  if (btn) {
+    btn.style.color = 'var(--gold)';
+    btn.setAttribute('aria-label', 'Link copied!');
+    setTimeout(() => {
+      btn.style.color = '';
+      btn.setAttribute('aria-label', 'Copy article link to clipboard');
+    }, 2000);
+  }
 });
 
 document.getElementById('copy-cite')?.addEventListener('click', () => {
   const citeText = document.querySelector('.cite-text')?.textContent || '';
   navigator.clipboard.writeText(citeText);
-  const btn = document.getElementById('copy-cite');
-  if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
+  const btn = document.getElementById('copy-cite') as HTMLButtonElement | null;
+  if (btn) {
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = 'Copy'; }, 2000);
+  }
 });
 </script>
 
@@ -194,7 +233,7 @@ document.getElementById('copy-cite')?.addEventListener('click', () => {
 
 .article-excerpt-hero {
   font-size: 19px;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.7);
   font-style: italic;
   font-weight: 300;
   line-height: 1.7;
@@ -218,7 +257,7 @@ document.getElementById('copy-cite')?.addEventListener('click', () => {
 
 .byline-meta {
   font-size: 14px;
-  color: rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.6);
 }
 .byline-meta .sep { margin: 0 0.4rem; }
 
@@ -263,6 +302,7 @@ document.getElementById('copy-cite')?.addEventListener('click', () => {
   transition: all 0.2s;
 }
 .share-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+.share-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .cite-box {
   background: var(--cream);
@@ -290,6 +330,7 @@ document.getElementById('copy-cite')?.addEventListener('click', () => {
   transition: background 0.2s;
 }
 .cite-copy:hover { background: var(--teal); }
+.cite-copy:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 
 .detail-list { display: flex; flex-direction: column; gap: 0; }
 

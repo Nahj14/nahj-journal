@@ -18,24 +18,23 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   <div class="header-identity">
     <div class="identity-inner">
       <a href="/" class="journal-brand">
-        <div class="brand-arabic">مجلة النهج</div>
+        <div class="brand-arabic" lang="ar">مجلة النهج</div>
         <div class="brand-main">
           <span class="brand-nahj">NAHJ</span>
           <span class="brand-journal">JOURNAL</span>
         </div>
-        <div class="brand-subtitle">Islamic Thought · Politics · Society · Philosophy</div>
+        <div class="brand-subtitle">Cultural & Historical Studies · Neuro-Humanities · Critical Modernity · Open Access</div>
       </a>
     </div>
   </div>
 
-  <nav class="journal-nav">
+  <nav class="journal-nav" aria-label="Main navigation">
     <div class="nav-inner">
       <a href="/" class:list={['nav-link', { active: currentPath === '/' }]}>Home</a>
       <a href="/archive" class:list={['nav-link', { active: isActive('/archive') }]}>Archive</a>
       <a href="/team" class:list={['nav-link', { active: isActive('/team') }]}>Editorial Team</a>
       <a href="/submit" class:list={['nav-link', { active: isActive('/submit') }]}>Submit</a>
       <a href="/review" class:list={['nav-link', { active: isActive('/review') }]}>For Reviewers</a>
-      <a href="/login" class:list={['nav-link nav-login', { active: isActive('/login') }]}>Login</a>
     </div>
   </nav>
 </header>
@@ -109,6 +108,7 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   color: var(--gold);
   margin-bottom: 0.2rem;
   direction: rtl;
+  text-align: left;
 }
 
 .brand-main {
@@ -183,26 +183,11 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   border-bottom-color: var(--gold);
 }
 
-.nav-login {
-  margin-left: auto;
-  background: rgba(200,162,82,0.12);
-  border: 1px solid rgba(200,162,82,0.3);
-  padding: 7px 16px;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  border-bottom: 1px solid rgba(200,162,82,0.3) !important;
-}
-
-.nav-login:hover {
-  background: rgba(200,162,82,0.25);
-  border-bottom-color: rgba(200,162,82,0.3) !important;
-}
-
 @media (max-width: 768px) {
   .header-top-right { display: none; }
   .brand-nahj { font-size: 30px; }
-  .nav-inner { overflow-x: auto; gap: 0; white-space: nowrap; }
+  .brand-subtitle { font-size: 11px; letter-spacing: 0.03em; }
+  .nav-inner { overflow-x: auto; gap: 0; white-space: nowrap; -webkit-overflow-scrolling: touch; }
   .nav-link { padding: 10px 12px; font-size: 12px; }
-  .nav-login { margin-left: 0; }
 }
 </style>
