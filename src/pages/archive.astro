@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const articles = await getCollection('articles');
+const hasArticles = articles.length > 0;
 ---
 
 <BaseLayout title="Archive" description="Browse all issues and articles published in NAHJ Journal.">
@@ -31,62 +35,48 @@ import BaseLayout from '../layouts/BaseLayout.astro';
               <div class="issue-theme">Theme: Authority, Legitimacy &amp; Islamic Governance</div>
             </div>
             <div class="issue-meta">
-              <span>3 articles</span>
+              <span>In production</span>
               <span class="dot">·</span>
-              <span>Published March 2026</span>
+              <span>Spring 2026</span>
             </div>
           </div>
 
           <div class="issue-articles">
-
-            <div class="archive-article">
-              <div class="arch-left">
-                <span class="arch-type">Essay</span>
-                <span class="arch-cat">Theology &amp; Politics</span>
-              </div>
-              <div class="arch-main">
-                <h3 class="arch-title">
-                  <a href="/articles/ontological-sovereignty-the-imam-as-hujjat-allah-and-the-divine-organ-in-early-shii-doctrine">
-                    Ontological Sovereignty: The Imam as Hujjat Allah and the Divine Organ in Early Shi'i Doctrine
-                  </a>
-                </h3>
-                <div class="arch-meta">
-                  <span>NAHJ Editorial Team</span>
-                  <span class="dot">·</span>
-                  <span>15 March 2025</span>
-                  <span class="dot">·</span>
-                  <span>8,240 words</span>
+            {hasArticles ? (
+              articles.map(article => (
+                <div class="archive-article">
+                  <div class="arch-left">
+                    <span class="arch-type">{article.data.type}</span>
+                    <span class="arch-cat">{article.data.category}</span>
+                  </div>
+                  <div class="arch-main">
+                    <h3 class="arch-title">
+                      <a href={`/articles/${article.id}`}>{article.data.title}</a>
+                    </h3>
+                    <div class="arch-meta">
+                      <span>{article.data.author}</span>
+                      <span class="dot">·</span>
+                      <span>{new Date(article.data.pubDate).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+                    </div>
+                  </div>
+                  <div class="arch-right">
+                    <a href={`/articles/${article.id}`} class="arch-read">Read</a>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div class="archive-empty">
+                <div class="archive-empty-inner">
+                  <div class="archive-empty-icon">◆</div>
+                  <div class="archive-empty-title">Articles in production</div>
+                  <p class="archive-empty-text">
+                    The inaugural issue is currently being finalised. Articles will appear here upon
+                    publication. We welcome submissions for Volume 2, Autumn 2026.
+                  </p>
+                  <a href="/submit/manuscript" class="btn-primary">Submit a Manuscript</a>
                 </div>
               </div>
-              <div class="arch-right">
-                <a href="/articles/ontological-sovereignty-the-imam-as-hujjat-allah-and-the-divine-organ-in-early-shii-doctrine" class="arch-read">Read</a>
-              </div>
-            </div>
-
-            <div class="archive-article">
-              <div class="arch-left">
-                <span class="arch-type">Essay</span>
-                <span class="arch-cat">Theology &amp; Politics</span>
-              </div>
-              <div class="arch-main">
-                <h3 class="arch-title">
-                  <a href="/articles/beyond-the-headlines-islamic-governance-and-mysticism">
-                    Beyond the Headlines: Islamic Governance and Mysticism
-                  </a>
-                </h3>
-                <div class="arch-meta">
-                  <span>NAHJ Team</span>
-                  <span class="dot">·</span>
-                  <span>9 March 2025</span>
-                  <span class="dot">·</span>
-                  <span>6,100 words</span>
-                </div>
-              </div>
-              <div class="arch-right">
-                <a href="/articles/beyond-the-headlines-islamic-governance-and-mysticism" class="arch-read">Read</a>
-              </div>
-            </div>
-
+            )}
           </div>
         </div>
       </div>
@@ -116,11 +106,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 .breadcrumb {
   font-size: 13px;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.5);
   letter-spacing: 0.05em;
   margin-bottom: 1.5rem;
 }
-.breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; }
+.breadcrumb a { color: rgba(255,255,255,0.5); text-decoration: none; }
 .breadcrumb a:hover { color: var(--gold); }
 
 .page-h1 {
@@ -133,7 +123,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 .page-sub {
   font-size: 18px;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.65);
   font-weight: 300;
   margin: 0;
 }
@@ -204,8 +194,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   align-items: start;
   padding: 1.5rem;
   border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
 }
 .archive-article:last-child { border-bottom: none; }
+.archive-article:hover { background: var(--cream); }
 
 .arch-left {
   display: flex;
@@ -265,6 +257,37 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   transition: all 0.2s;
 }
 .arch-read:hover { background: var(--navy); color: var(--white); }
+
+/* Empty state */
+.archive-empty {
+  padding: 3rem 2rem;
+}
+
+.archive-empty-inner {
+  max-width: 520px;
+}
+
+.archive-empty-icon {
+  color: var(--gold);
+  font-size: 14px;
+  margin-bottom: 1rem;
+}
+
+.archive-empty-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 0.75rem;
+}
+
+.archive-empty-text {
+  font-size: 16px;
+  color: var(--muted);
+  line-height: 1.75;
+  font-weight: 300;
+  margin-bottom: 1.5rem;
+}
 
 .volume-coming {
   background: var(--cream);

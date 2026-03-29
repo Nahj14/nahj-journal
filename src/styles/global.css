@@ -2,9 +2,8 @@
    Design: Editorial academic journal
    Inspired by: Nature, Oxford Academic, Annual Reviews
    Typography: Cormorant Garamond (display) + Crimson Pro (body)
+   Fonts loaded via <link> in BaseLayout.astro — do not @import here.
 */
-
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap');
 
 :root {
   --navy:        #0C1B2E;
@@ -182,8 +181,76 @@ hr {
   color: var(--muted);
 }
 
+/* Prose tables — required for article markdown tables */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 16px;
+  overflow-x: auto;
+  display: block;
+}
+.prose thead { background: var(--navy); }
+.prose thead th {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.prose tbody tr { border-bottom: 1px solid var(--border); }
+.prose tbody tr:nth-child(even) { background: var(--cream); }
+.prose tbody td {
+  padding: 0.7rem 1rem;
+  color: var(--charcoal);
+  font-weight: 300;
+  vertical-align: top;
+  border: 1px solid var(--border);
+}
+
+/* Prose code */
+.prose code {
+  font-family: 'Courier New', monospace;
+  font-size: 15px;
+  background: var(--cream);
+  border: 1px solid var(--border);
+  padding: 2px 5px;
+  color: var(--navy);
+}
+.prose pre {
+  background: var(--navy);
+  color: rgba(255,255,255,0.85);
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+}
+
+/* Prose footnotes */
+.prose .footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.prose .footnotes ol { padding-left: 1.5rem; }
+.prose .footnotes li { margin-bottom: 0.5em; }
+
 @media (max-width: 768px) {
   body { font-size: 17px; }
   .container { padding: 0 1.25rem; }
   .container-narrow { padding: 0 1.25rem; }
+  .prose table { font-size: 14px; }
 }
