@@ -4,27 +4,20 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
 ---
 
 <header class="journal-header">
-  <div class="header-top">
-    <div class="header-top-inner">
-      <a href="https://nahjinstitute.com" class="parent-link">← Nahj Institute</a>
-      <div class="header-top-right">
-        <span class="issn-label">ISSN (Online) Pending</span>
-        <span class="divider">|</span>
-        <span class="volume-label">Vol. 1 · Spring 2026</span>
-      </div>
-    </div>
-  </div>
-
   <div class="header-identity">
     <div class="identity-inner">
       <a href="/" class="journal-brand">
-        <div class="brand-arabic" lang="ar">مجلة النهج</div>
         <div class="brand-main">
           <span class="brand-nahj">NAHJ</span>
           <span class="brand-journal">JOURNAL</span>
         </div>
-        <div class="brand-subtitle">Cultural & Historical Studies · Neuro-Humanities · Critical Modernity · Open Access</div>
+        <div class="brand-subtitle">Cultural &amp; Historical Studies · Neuro-Humanities · Critical Modernity · Open Access</div>
       </a>
+      <div class="header-meta">
+        <span class="issn-label">ISSN (Online) Pending</span>
+        <span class="divider">|</span>
+        <span class="volume-label">Vol. 1 · Spring 2026</span>
+      </div>
     </div>
   </div>
 
@@ -45,48 +38,6 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   border-bottom: 3px solid var(--gold);
 }
 
-.header-top {
-  background: var(--navy-mid);
-  border-bottom: 1px solid rgba(200,162,82,0.2);
-}
-
-.header-top-inner {
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 7px 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.parent-link {
-  font-family: 'Crimson Pro', serif;
-  font-size: 12px;
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  letter-spacing: 0.05em;
-  transition: color 0.2s;
-}
-.parent-link:hover { color: var(--gold); }
-
-.header-top-right {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.issn-label, .volume-label {
-  font-family: 'Crimson Pro', serif;
-  font-size: 11px;
-  color: rgba(255,255,255,0.45);
-  letter-spacing: 0.08em;
-}
-
-.header-top-right .divider {
-  color: rgba(255,255,255,0.2);
-  font-size: 11px;
-}
-
 .header-identity {
   padding: 1.75rem 0 1.5rem;
 }
@@ -95,20 +46,15 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   max-width: 1140px;
   margin: 0 auto;
   padding: 0 2rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .journal-brand {
   text-decoration: none;
   display: inline-block;
-}
-
-.brand-arabic {
-  font-family: 'Amiri', serif;
-  font-size: 18px;
-  color: var(--gold);
-  margin-bottom: 0.2rem;
-  direction: rtl;
-  text-align: left;
 }
 
 .brand-main {
@@ -144,6 +90,26 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
   color: rgba(255,255,255,0.45);
   letter-spacing: 0.06em;
   font-style: italic;
+}
+
+.header-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  padding-bottom: 3px;
+}
+
+.issn-label, .volume-label {
+  font-family: 'Crimson Pro', serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.08em;
+}
+
+.header-meta .divider {
+  color: rgba(255,255,255,0.2);
+  font-size: 11px;
 }
 
 .journal-nav {
@@ -184,7 +150,8 @@ const isActive = (path: string) => currentPath === path || currentPath.startsWit
 }
 
 @media (max-width: 768px) {
-  .header-top-right { display: none; }
+  .header-meta { display: none; }
+  .identity-inner { display: block; }
   .brand-nahj { font-size: 30px; }
   .brand-subtitle { font-size: 11px; letter-spacing: 0.03em; }
   .nav-inner { overflow-x: auto; gap: 0; white-space: nowrap; -webkit-overflow-scrolling: touch; }

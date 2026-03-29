@@ -20,6 +20,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <div class="form-main">
           <form action="https://formspree.io/f/mzdjakqe" method="POST" enctype="multipart/form-data">
+            <input type="hidden" name="_subject" value="Manuscript Submission — NAHJ Journal" />
 
             <div class="form-section">
               <h2 class="form-section-title">Author Information</h2>
@@ -62,7 +63,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                     <option value="">Select article type</option>
                     <option>Research Article</option>
                     <option>Review Essay</option>
-                    <option>Critical Commentary</option>
+                    <option>Research Note</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -74,14 +75,15 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 <label for="focus">Primary Focus Area *</label>
                 <select id="focus" name="focus" required>
                   <option value="">Select focus area</option>
-                  <option>Theology &amp; Philosophy</option>
-                  <option>Islamic Political Thought</option>
-                  <option>Geopolitics</option>
-                  <option>Society &amp; Culture</option>
-                  <option>Ethics &amp; Moral Philosophy</option>
-                  <option>Religious Harmony</option>
+                  <option>Cultural and Historical Studies</option>
                   <option>Intellectual History</option>
-                  <option>Sufism &amp; Mysticism</option>
+                  <option>Neuro-Humanities and Cognitive Theory</option>
+                  <option>Philosophy of Mind</option>
+                  <option>Critical Modernity and Social Dynamics</option>
+                  <option>Political Philosophy and Theory</option>
+                  <option>Ethics and Moral Philosophy</option>
+                  <option>Postcolonial and Decolonial Studies</option>
+                  <option>Philosophy of Religion</option>
                   <option>Other</option>
                 </select>
               </div>
@@ -157,7 +159,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 <div class="date-value">3,000–6,000</div>
               </div>
               <div class="date-item">
-                <div class="date-label">Commentary</div>
+                <div class="date-label">Research Note</div>
                 <div class="date-value">1,500–3,000</div>
               </div>
             </div>
